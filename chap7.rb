@@ -1,4 +1,5 @@
-puts "7.5 - Number 1"
+=begin
+puts "7.5 - Number 1 - 99 bottles of beer on the wall"
 puts 'Song Title: 99 bottles of beer on the wall'
 puts '---> We\'re only drinking a max of 5 beers tonight.'
 
@@ -12,4 +13,55 @@ count = 0
 			count += 1
 		end
 	end
+
+puts "------------------------------------"
+puts "7.5 - Number 2 and 3 - Deaf Granny"
+puts "------------------------------------"
+
+c = 0
+while c < 5
+	puts "If you want stop talking to Gran, say 'BYE' three times in a row"
+	puts "Say something to Gran(5 chances): "
+	toGran = gets.chomp
+		if toGran == 'BYE BYE BYE'
+			puts "--->Gran: I SAID I HATED CAKE! BYE!"
+			exit
+		elsif toGran == toGran.downcase
+				puts "--->Gran: HUH?! SPEAK UP, SONNY!"
+		elsif toGran == toGran.upcase
+			r = (rand(20)) + 1930
+				puts "--->Gran: NO, NOT SINCE #{r}!"
+		end	
+		c += 1
+end
+=end
+
+#not finished
+puts "------------------------------------"
+puts "7.5 - Number 4 - Leap Years"
+puts "------------------------------------"
+	
+puts "Enter a starting year:"
+year1 = gets.chomp.to_i
+puts "Enter a ending year:"
+year2 = gets.chomp.to_i
+f = (year1%4)
+
+count = 0
+while count == year2
+	if f == 0
+		year1 += 4
+		puts year1
+		break if year2
+		#puts "#{year1} is a leap year!"
+	else f != 0
+		puts "#{year1} is not a leap year!"
+	end
+end
+
+
+
+
+
+
 
