@@ -1,4 +1,4 @@
-=begin
+
 puts "7.5 - Number 1 - 99 bottles of beer on the wall"
 puts 'Song Title: 99 bottles of beer on the wall'
 puts '---> We\'re only drinking a max of 5 beers tonight.'
@@ -34,9 +34,7 @@ while c < 5
 		end	
 		c += 1
 end
-=end
 
-#not finished
 puts "------------------------------------"
 puts "7.5 - Number 4 - Leap Years"
 puts "------------------------------------"
@@ -46,16 +44,16 @@ year1 = gets.chomp.to_i
 puts "Enter a ending year:"
 year2 = gets.chomp.to_i
 f = (year1%4)
-
-count = 0
-while count == year2
-	if f == 0
-		year1 += 4
-		puts year1
-		break if year2
-		#puts "#{year1} is a leap year!"
-	else f != 0
-		puts "#{year1} is not a leap year!"
+puts "------------------------------------"
+while year1 <= year2
+	if f != 0
+		year1 += 1
+		f = (year1%4)	
+	elsif f == 0
+		if year1%100  != 0 || year1%400 == 0
+			puts "#{year1} is a leap year."
+			year1 += 4
+		end
 	end
 end
 
