@@ -1,4 +1,3 @@
-
 puts "7.5 - Number 1 - 99 bottles of beer on the wall"
 puts 'Song Title: 99 bottles of beer on the wall'
 puts '---> We\'re only drinking a max of 5 beers tonight.'
