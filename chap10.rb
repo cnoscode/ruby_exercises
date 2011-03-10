@@ -1,4 +1,5 @@
 #example in book
+=begin
 M = 'land'
 o = 'water'
 
@@ -35,3 +36,39 @@ def continent_size world, x, y
 end
 
 puts continent_size(world, 5, 5)
+puts
+=end
+
+
+#page 94
+
+#takes in elements of array
+def sort a
+	rec_sort a, []
+end
+
+#sorted_a starts out as empty array
+
+def rec_sort unsorted_a, sorted_a
+	if unsorted_a.length == 0
+		#once unsorted_a is empty, return contents of sorted_a
+	end
+	
+	#take last element of array and compare it to the others 
+	
+	smallest = unsorted_a.pop
+	still_unsorted_a = []		
+	
+	unsorted_a.each do |unsorted_elem|
+		if unsorted_elem < smallest
+			still_unsorted_a.push smallest
+
+		else
+			#			
+		end
+	end
+	
+	
+end
+puts sort(['be', 'ab', 'do', 'cj'])
+
