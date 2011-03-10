@@ -37,8 +37,6 @@ end
 
 puts continent_size(world, 5, 5)
 puts
-=end
-
 
 #page 94
 
@@ -50,8 +48,9 @@ end
 #sorted_a starts out as empty array
 
 def rec_sort unsorted_a, sorted_a
-	if unsorted_a.length == 0
-		#once unsorted_a is empty, return contents of sorted_a
+	if unsorted_a.length <= 0
+		#once unsorted_a is empty, return contents of sorted_a 
+		return sorted_a
 	end
 	
 	#take last element of array and compare it to the others 
@@ -62,13 +61,23 @@ def rec_sort unsorted_a, sorted_a
 	unsorted_a.each do |unsorted_elem|
 		if unsorted_elem < smallest
 			still_unsorted_a.push smallest
-
+			smallest = unsorted_elem
+			#puts sorted_a
 		else
-			#			
+			still_unsorted_a.push unsorted_elem		
 		end
 	end
 	
+	sorted_a.push smallest
 	
+	rec_sort still_unsorted_a, sorted_a
 end
 puts sort(['be', 'ab', 'do', 'cj'])
+=end
 
+def shuffle a
+	a_one = []
+	
+end
+
+puts shuffle(['be', 'ab', 'do', 'cj'])
