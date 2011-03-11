@@ -73,11 +73,98 @@ def rec_sort unsorted_a, sorted_a
 	rec_sort still_unsorted_a, sorted_a
 end
 puts sort(['be', 'ab', 'do', 'cj'])
-=end
+
 
 def shuffle a
 	a_one = []
-	
+	a_one = a.sort_by{rand} 
+	puts a_one
 end
 
-puts shuffle(['be', 'ab', 'do', 'cj'])
+shuffle(['be', 'ab', 'do', 'cj'])
+
+def dict_sort a
+	recDict_sort a, []
+end
+
+def recDict_sort unsorted_a, sorted_a
+	if unsorted_a.length <= 0
+		#once unsorted_a is empty, return contents of sorted_a 
+		return sorted_a
+	end
+	
+	#take last element of array and compare it to the others 
+	
+	smallest = unsorted_a.pop
+	still_unsorted_a = []		
+	
+	unsorted_a.each do |unsorted_elem|
+		if unsorted_elem.downcase < smallest.downcase
+			still_unsorted_a.push smallest
+			smallest = unsorted_elem
+			#puts sorted_a
+		else
+			still_unsorted_a.push unsorted_elem		
+		end
+	end
+	
+	sorted_a.push smallest
+	
+	recDict_sort still_unsorted_a, sorted_a
+end
+puts dict_sort(['Hello', 'ab', 'do', 'run'])
+=end
+
+def english_num num
+if num < 0
+	return 'Please enter a number that isn\'t negative.'
+end
+if num == 0
+	return 'zero'
+end
+num_string = ''
+
+ones_place = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+tens_place = ['ten', 'twenty', 'thirty', 'forty', 'fifty', 'sityx', 'seventy', 'eighty', 'ninety']
+teens = ['eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
+
+left = num 
+write = left/100
+left -= write*100
+
+if write > 0
+	#reursion
+	hundreds = english_num write
+	num_string = num_string + hundreds + 'hundred'
+		if left > 0
+			num_string += ' '
+		end
+end
+
+write = left/10
+left -= write *10
+
+if write > 0
+	if ((write == 1) and (left > 0))
+		num_string += teens[left-1]
+		left = 0
+	else
+		num_string += tens_place[write-1]
+	end
+end
+
+write = left 
+left = 0
+
+if write > 0
+	num_string += ones_place[write-1]
+end
+
+	num_string
+end
+
+puts english_num( 0)
+puts english_num( 13)
+puts english_num( 45)
+puts english_num( 99)
+puts english_num( 234)
