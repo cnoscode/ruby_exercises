@@ -4,17 +4,18 @@ puts "9.5 - Number 1 - Improved Ask method"
 puts "--------------------------------------------------"
 def ask question
 	while true
-	puts question
-	reply =gets.chomp.downcase
+		puts question
+		reply =gets.chomp.downcase
 	#if (reply == 'yes' || reply == 'no')
-		if reply == 'yes'
-			return true
-		else
-			return false
-		end
+			if reply == 'yes'
+				return true
+			else
+				return false
+			end
 		break 
 	end
 end
+
 puts 'Survey...'
 wets_bed = ask 'Do you wet the bed?'
 puts
@@ -84,6 +85,7 @@ ones = (num % 10/1)
 		rn += 'I' * (num % 5/1) 
 	end
 	puts "#{num} is the same as: #{rn}"
+	
 end
 
 mod_roman_numeral(4099)

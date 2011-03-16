@@ -74,7 +74,9 @@ def rec_sort unsorted_a, sorted_a
 	sorted_a.push smallest
 	
 	rec_sort still_unsorted_a, sorted_a
+	
 end
+
 puts sort(['be', 'ab', 'do', 'cj'])
 puts "--------------------------------------------------"
 puts "10.3 - Number 1 -Shuffle"
@@ -121,5 +123,6 @@ def recDict_sort unsorted_a, sorted_a
 	sorted_a.push smallest
 	
 	recDict_sort still_unsorted_a, sorted_a
+	
 end
 puts dict_sort(['Hello', 'ab', 'do', 'run'])

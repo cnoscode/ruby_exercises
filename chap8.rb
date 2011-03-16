@@ -6,13 +6,13 @@ puts "Please enter a bunch of words:"
 
 arr = []
 
-while true
-	word = gets.chomp 
-	if word == ''
-		break
+	while true
+		word = gets.chomp 
+		if word == ''
+			break
+		end
+	arr.push word
 	end
-arr.push word
-end
 
 puts "Sorted:"
 puts arr.sort
@@ -27,8 +27,8 @@ arr =	[['Getting Started',  1],
 		['Letters',		     13]]
 
 header = 'Table of Contents'
-puts header.center(50)
-puts
+	puts header.center(50)
+	puts
 
 ch_num = 1
 arr.each do |elem|
