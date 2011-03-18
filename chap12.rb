@@ -14,8 +14,8 @@ puts "What day of the month were you born on? (Number please)"
 time = Time.gm(year, month, day)
 
 time_now = Time.new
-my_age = 24
-age_count = 1
+my_age = 23
+age_count = 0
 	while Time.gm(year + age_count, month, day) < time_now
 		puts "SPANK!"
 		age_count += 1
@@ -59,24 +59,34 @@ vals = {	'm' => 1000,
 			 		'x' => 10,
 			 		'v' => 5,
 			 		'i' => 1		}
+			 		
+sum_total = 0
+#i = 0
 
 	roman.each_char do |letter|
 		a = letter.downcase
-		new_vals = vals[a]
-		puts new_vals
+		new_val = vals[a]
 		
-			if !new_vals
-				puts "Enter valid roman numeral."
-				#return false
+			if !new_val
+				puts "*** Enter a valid roman numeral ***"
+				return
 			end	
+						
+			#if new_val > i	
+				 #new_val = i
+				 #i = new_val
+			#end
+			#puts new_val
+			
+			#takes each value in new_val and adds it to sum_total
+			sum_total += new_val 
+			
 	end
-	
+
+puts sum_total
 end
 
-roman_to_integer('MDCVI')
-
-
-
+roman_to_integer('MCMXCIX')
 
 
 
