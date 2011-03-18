@@ -73,7 +73,6 @@ sum_total = 0
 			end	
 						
 			#if new_val > i	
-				 #new_val = i
 				 #i = new_val
 			#end
 			#puts new_val
