@@ -1,27 +1,38 @@
 class OrangeTree
 	
 	def initialize 
-		@heightTree = 0
-		@treeAge = 0
-		
+		@treeHeight = 0
+		@treeAlive = true
+		@num_oranges = 0
 	end
 	
 	def height
-		
+		if @treeAlive
+			@heightTree
+		else
+			return "The orange tree is dead!"
+		end
 	end
 	
 	def one_year_passes
-		while @treeAge < 10	
-				@heightTree += 2
-				@treeAge += 1
+		if @treeAlive
+			@treeHeight += 0.5
+			return "Tree height : #{@treeHeight} feet"
+		else
+			return "Orange tree is dead; that's why it can't grow!"
 		end
-		
-		puts "Height of tree (in feet): #{@heightTree}" 
-		puts "Age of tree: #{@treeAge}" 
-
-		
+	end
+	
+	def count_the_oranges
+		if @treeAlive
+			return "Number of oranges : #{@num_oranges}"
+		else
+			return "There are no oranges on the orange tree!"
+		end
 	end
 
 end # End Class
+
 orange = OrangeTree.new
 puts orange.one_year_passes
+puts orange.count_the_oranges
