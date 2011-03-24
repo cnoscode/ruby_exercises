@@ -1,56 +1,70 @@
 class OrangeTree
-	
-	def initialize 
+
+	def initialize
+		@numOranges = 0
 		@treeHeight = 0
-		@num_oranges = 0
 		@treeAlive = true
 	end
 	
 	def height
 		if @treeAlive
-			@treeHeight
+			"Orange tree is #{@treeHeight} feet."
 		else
-			return "The orange tree is dead!"
+			"The Orange tree sadly can't grow anymore."
 		end
 	end
-	
+
 	def one_year_passes
 		if @treeAlive
-			@treeHeight += 2.5
-			#first couple years, no oranges...
-			@num_oranges = 0
-			return "Tree height : #{@treeHeight} feet"
+			@treeHeight += 0.5
+			@numOranges = 0
+			#once reaching height of 20; tree dies
+			if @treeHeight > 20 && rand(2) > 0
+				@treeAlive = false
+				"Tree is way too old...so it died."
+			elsif @treeHeight > 4
+				@numOranges = (@treeHeight * 2 + 4)
+				"Height of Orange tree is #{@treeHeight} feet. and has a total of #{@numOranges} oranges."
+			else
+				"Orange Tree is still too young to grow any oranges."
+			end
 		else
-			return "Orange tree is dead; that's why it can't grow!"
+			"Tree is still dead."
 		end
 	end
-	
+
 	def count_the_oranges
 		if @treeAlive
-			@num_oranges += 4
-			return "Number of oranges : #{@num_oranges}"
+			"Orange tree has #{@numOranges} oranges."
 		else
-			return "There are no oranges on the orange tree!"
+			"There are no oranges left."
 		end
 	end
 	
 	def pick_an_orange
-		if @treeAlive
-			if @num_oranges > 0
-				@num_oranges -= 1
-				return "Number of oranges after being picked : #{@num_oranges}"
+		if @treeAlive 
+			if @numOranges > 0
+				"There are #{@numOranges -= 1} oranges left after picking."
 			else
-				return "No oranges to pick..."
+				"There are no oranges left to pick."
 			end
+		else
+			"Tree is dead so you can't pick oranges."
 		end
 	end
 
-end # End Class
+end
 
 orange = OrangeTree.new
+
+rand(20).times do
+	orange.one_year_passes
+end
+
 puts orange.one_year_passes
 puts orange.count_the_oranges
 puts orange.one_year_passes
+puts orange.one_year_passes
 puts orange.count_the_oranges
 puts orange.pick_an_orange
-puts orange.pick_an_orange
+puts orange.count_the_oranges
