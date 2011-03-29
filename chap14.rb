@@ -179,7 +179,7 @@ def log desc, &block
 	space = '  '*$indent
 	puts "#{space}Beginning #{desc}..."
 	$indent += 1
-	block.call
+	yield#block.call
 	$indent -= 1
 	puts "#{space}...#{desc} is now finished."
 end
