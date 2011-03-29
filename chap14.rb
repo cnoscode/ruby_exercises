@@ -106,18 +106,96 @@ def profile block_desc, &block
 	puts "#{block_desc}: #{duration} seconds"
 end
 
-profile '25000 doublings' do
-	number = 1
-	25000.times do
-		number += number
+#change to "true to turn on"
+turn_on = true
+
+while turn_on
+	profile '25000 doublings' do
+		number = 1
+		25000.times do
+			number += number
+		end
+		
+		puts "#{number.to_s.length} digits"
 	end
 	
-	puts "#{number.to_s.length} digits"
+	profile 'count to a million' do
+		number = 0
+		1000000.times do
+			number += 1
+		end
+	end
+	
+break
+
 end
 
-profile 'count to a million' do
-	number = 0
-	1000000.times do
-		number += 1
-	end
+
+def grand_father &block
+	hour = Time.new.hour
+
+		if hour == 0
+			hour = 12
+		end
+
+		if hour > 12 #&& hour <= 23
+			#hour = hour - 12
+			hour -= 12
+		else
+			hour
+		end
+		
+		# since hour is 10, it should ring 10 times
+		hour.times do
+			block.call	
+		end
 end
+
+grand_father do
+	puts 'DONG!'
+end
+
+def log desc, &block
+	puts "Beginning #{desc}..."
+	block.call
+	puts "...#{desc} is now finished."
+end
+	
+	log 'outer block' do 
+		log 'inner block' do
+			sleep(3)
+		end		
+		log 'yet another block' do 
+			sleep(3)
+		end
+		sleep(3)
+	end
+puts 
+puts '------------Using indentation with global variables------------'
+puts 
+#$indent = ' ' <-- could be done as well although pointless. String conversion to integer yields value of 0.
+$indent = 0
+def log desc, &block
+	space = '  '*$indent
+	puts "#{space}Beginning #{desc}..."
+	$indent += 1
+	block.call
+	$indent -= 1
+	puts "#{space}...#{desc} is now finished."
+end
+	
+	log 'outer block' do 
+		log 'inner block' do
+			sleep(3)
+			log 'extremely inner block' do
+				sleep(3)
+			end
+			sleep(3)
+		end		
+		 log 'yet another block' do 
+			sleep(3)
+		end
+		sleep(3)
+	end
+
+
