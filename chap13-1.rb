@@ -34,22 +34,22 @@ class Integer
     end
  
     if tens == 9
-       rn += 'XC' # 90's
+      rn += 'XC' # 90's
     elsif tens == 4
-       rn += 'XL' # 40's
+      rn += 'XL' # 40's
     else
-       rn += 'L' * (self % 100/50)
-       rn += 'X' * (self % 50/10)
+      rn += 'L' * (self % 100/50)
+      rn += 'X' * (self % 50/10)
     end
     # if ones have a 9 in it then put 'IX'
     # if ones have a 4 in it then put 'IV'
     if ones == 9
-       rn += 'IX'
+      rn += 'IX'
     elsif ones == 4
-       rn += 'IV'
+      rn += 'IV'
     else
-            rn += 'V' * (self % 10/5) 
-            rn += 'I' * (self % 5/1) 
+      rn += 'V' * (self % 10/5) 
+      rn += 'I' * (self % 5/1) 
     end
   rn 
   end # end def    
