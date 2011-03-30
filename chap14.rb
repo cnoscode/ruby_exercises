@@ -134,21 +134,21 @@ end
 def grand_father &block
 	hour = Time.new.hour
 
-		if hour == 0
-			hour = 12
-		end
+  if hour == 0
+    hour = 12
+  end
 
-		if hour > 12 #&& hour <= 23
-			#hour = hour - 12
-			hour -= 12
-		else
-			hour
-		end
-		
-		# since hour is 10, it should ring 10 times
-		hour.times do
-			block.call	
-		end
+  if hour > 12 #&& hour <= 23
+    #hour = hour - 12
+    hour -= 12
+  else
+    hour
+  end
+  
+  # since hour is 10, it should ring 10 times
+  hour.times do
+    block.call	
+  end
 end
 
 grand_father do
@@ -161,15 +161,15 @@ def log desc, &block
 	puts "...#{desc} is now finished."
 end
 	
-	log 'outer block' do 
-		log 'inner block' do
-			sleep(3)
-		end		
-		log 'yet another block' do 
-			sleep(3)
-		end
-		sleep(3)
-	end
+log 'outer block' do 
+  log 'inner block' do
+    sleep(3)
+  end		
+  log 'yet another block' do 
+    sleep(3)
+  end
+  sleep(3)
+end
 puts 
 puts '------------Using indentation with global variables------------'
 puts 
@@ -183,19 +183,19 @@ def log desc, &block
 	$indent -= 1
 	puts "#{space}...#{desc} is now finished."
 end
-	
-	log 'outer block' do 
-		log 'inner block' do
-			sleep(3)
-			log 'extremely inner block' do
-				sleep(3)
-			end
-			sleep(3)
-		end		
-		 log 'yet another block' do 
-			sleep(3)
-		end
-		sleep(3)
-	end
+
+log 'outer block' do 
+  log 'inner block' do
+    sleep(3)
+    log 'extremely inner block' do
+      sleep(3)
+    end
+    sleep(3)
+  end		
+   log 'yet another block' do 
+    sleep(3)
+  end
+  sleep(3)
+end
 
 
