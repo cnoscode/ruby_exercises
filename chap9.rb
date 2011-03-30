@@ -1,4 +1,3 @@
-
 puts "--------------------------------------------------"
 puts "9.5 - Number 1 - Improved Ask method"
 puts "--------------------------------------------------"
@@ -7,12 +6,12 @@ def ask question
 		puts question
 		reply =gets.chomp.downcase
 	#if (reply == 'yes' || reply == 'no')
-			if reply == 'yes'
-				return true
-			else
-				return false
-			end
-		break 
+		if reply == 'yes'
+			return true
+		else
+			return false
+		end
+	break 
 	end
 end
 
@@ -38,7 +37,7 @@ def old_roman_numeral num
 	rn += 'V' * (num % 10/5)
 	rn += 'I' * (num % 5/1)
 	
-	puts "#{num} is the same as: #{rn}"
+  puts "#{num} is the same as: #{rn}"
 end
 
 old_roman_numeral(4)
@@ -55,27 +54,27 @@ hund = (num % 1000/100)
 tens = (num % 100/10)
 ones = (num % 10/1)
 
-	 if hund == 9 
-		 rn += 'CM' 
-	 elsif hund == 4
-		 rn += 'CD'
-	 else  	
-		 rn += 'D' * (num % 1000/500)
-		 rn += 'C' * (num % 500/100)
-	 end
+  if hund == 9 
+    rn += 'CM' 
+  elsif hund == 4
+    rn += 'CD'
+  else  	
+    rn += 'D' * (num % 1000/500)
+    rn += 'C' * (num % 500/100)
+  end
 
-	if tens == 9
-		rn += 'XC' # 90's
-	elsif tens == 4
-		rn += 'XL' # 40's
-	else
-		rn += 'L' * (num % 100/50)
-		rn += 'X' * (num % 50/10)
-	end
-# if ones have a 9 in it
-#then put 'IX'
-#if ones have a 4 in it
-#then put 'IV'
+  if tens == 9
+    rn += 'XC' # 90's
+  elsif tens == 4
+    rn += 'XL' # 40's
+  else
+    rn += 'L' * (num % 100/50)
+    rn += 'X' * (num % 50/10)
+  end
+    # if ones have a 9 in it
+    # then put 'IX'
+    # if ones have a 4 in it
+    # then put 'IV'
 	if ones == 9
 		rn += 'IX'
 	elsif ones == 4
@@ -87,5 +86,4 @@ ones = (num % 10/1)
 	puts "#{num} is the same as: #{rn}"
 	
 end
-
-mod_roman_numeral(4099)
+mod_roman_numeral(1999)
