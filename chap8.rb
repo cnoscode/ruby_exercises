@@ -22,8 +22,8 @@ puts "8.3 - Number 2 - Table of Contents - Using arrays"
 puts "--------------------------------------------------"
 
 arr =	[['Getting Started',  1],
-		['Numbers',           9],
-		['Letters',		     13]]
+  ['Numbers',           9], 
+  ['Letters',		     13]]
 
 header = 'Table of Contents'
 puts header.center(50)
