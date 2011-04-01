@@ -1,6 +1,6 @@
 #example in book
 puts "--------------------------------------------------"
-puts "10.5 - Number 1 -Shuffle"
+puts "10.5 - Number 1 -English Number"
 puts "--------------------------------------------------"
 def english_num num
   if num < 0
