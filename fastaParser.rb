@@ -1,28 +1,25 @@
-require 'rubygems'
-
 def search_fasta query
-  read_file = File.open("/Users/cjose/work/ruby_exercises/hshoe.fasta", "r" )
+  input_file = File.open("/Users/cjose/work/ruby_exercises/test.fa", "r" )
+
+  char_array = input_file.each_char.to_a
   
-  file_content = ''
-  fasta_headers = ''
-  sequences = ''
-  entry = ''
-  line_num = 0
-  entry_counter = 0
-    
-  read_file.each do |line|
-    if line =~ />/ 
-      fasta_headers += line
-    else 
-      sequences += line
+  unless char_array[0] =~ />/
+    puts "Error: Please input a FASTA file."
+    exit
+  end
+  
+  input_file = char_array.to_s.chomp
+  seqs_in_array = input_file.split("\n\n")
+  results_file = File.new("/Users/cjose/work/ruby_exercises/search_results.txt", "w")
+  hits_counter = 0
+  
+  seqs_in_array.each do |each_entry|
+    if each_entry =~ /#{query}/i
+      results_file.puts "Search hit #{hits_counter += 1} :"
+      results_file.puts each_entry
     end
   end
-  
-  if /#{query}/i =~ sequences 
-    puts "There is a match"
-  else 
-    puts "No matches"
-  end
-  
+puts "Sequences that match query: #{hits_counter}"
 end
-search_fasta("GAAATCGAACTAGGTCAGTGGTAC")
+search_fasta("GACCT")
+# CTGAAGTTAAATTTAATAAAAAAAAAAAAAAAAA
