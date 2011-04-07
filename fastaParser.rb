@@ -1,6 +1,8 @@
 def search_fasta query
+  
+ # query = ARGV[1]
+  
   input_file = File.open("/Users/cjose/work/ruby_exercises/test.fa", "r" )
-
   char_array = input_file.each_char.to_a
   
   unless char_array[0] =~ />/
@@ -14,6 +16,7 @@ def search_fasta query
   hits_counter = 0
   
   seqs_in_array.each do |each_entry|
+  # each_entry.delete!("\n")
     if each_entry =~ /#{query}/i
       results_file.puts "Search hit #{hits_counter += 1} :"
       results_file.puts each_entry
@@ -21,5 +24,5 @@ def search_fasta query
   end
 puts "Sequences that match query: #{hits_counter}"
 end
-search_fasta("GACCT")
+search_fasta("CGATGCGTG")
 # CTGAAGTTAAATTTAATAAAAAAAAAAAAAAAAA
