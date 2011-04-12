@@ -8,14 +8,13 @@ unless ARGV.length == 3 && input_file.downcase[-6..-1] == '.fasta'
   exit
 end
 
-
 def search_fasta( query, input_file, output_file ) 
   
   open_fasta = File.open( input_file, "r" )
   char_array = open_fasta.each_char.to_a
   
   unless char_array[0] =~ />/
-    puts "Error: Please input a FASTA file."
+    puts "Error => exception: Please input a FASTA file."
     exit
   end
   
@@ -31,11 +30,11 @@ def search_fasta( query, input_file, output_file )
       results_file.puts each_entry
     end
   end
-puts "Sequences that match query: #{hits_counter}"
+  puts "Sequences that match query: #{hits_counter}"
 
-open_fasta.close
-results_file.close
+  open_fasta.close
+  results_file.close
+
 end
-
 
 search_fasta( query, input_file, output_file )
